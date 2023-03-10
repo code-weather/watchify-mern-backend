@@ -5,4 +5,11 @@ require('dotenv').config();
 
 const app = express();
 
-app.use()
+app.use((req, res) => {
+  res.send('hello world');
+});
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`${PORT} is WORKING YOOO! 🔥`);
+});
