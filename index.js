@@ -1,13 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const userRoute = require('./routes/userRoutes');
 require('dotenv').config();
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello world')
-})
+// Routes middleware
+app.use('/users', userRoute);
 
 const PORT = process.env.PORT || 8000;
 mongoose
