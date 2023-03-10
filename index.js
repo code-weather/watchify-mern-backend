@@ -10,6 +10,11 @@ app.use((req, res) => {
 });
 
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log(`${PORT} is WORKING YOOO! 🔥`);
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`${PORT} is WORKING YOOO! 🔥`);
+    });
+  })
+  .catch((error) => console.log(error));
