@@ -7,13 +7,17 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Please add a name'],
     },
-    username: {
-      type: String,
-      required: [true, 'Please add a username'],
-    },
     email: {
       type: String,
       required: [true, 'Please add an email'],
+      unique: true,
+      trim: true,
+      lowercase: true,
+      match: [
+        // Validate email
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        'Please enter a valid email',
+      ],
     },
     password: {
       type: String,
@@ -26,4 +30,4 @@ const userSchema = new Schema(
 );
 
 const User = mongoose.model('user', userSchema);
-module.exports = User
+module.exports = User;
