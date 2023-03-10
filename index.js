@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 
 // Routes middleware
-app.use('/users', userRoute);
+app.use('/api/user', userRoute);
 
 const PORT = process.env.PORT || 8000;
 mongoose
