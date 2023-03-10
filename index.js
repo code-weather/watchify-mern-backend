@@ -5,9 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
-app.use((req, res) => {
-  res.send('hello world');
-});
+app.get('/', (req, res) => {
+  res.send('Hello world')
+})
 
 const PORT = process.env.PORT || 8000;
 mongoose
